@@ -1,5 +1,4 @@
 class UploadsController < ApplicationController
-  require  'csv'
   include CSVUpload
 
   def new
@@ -21,11 +20,8 @@ class UploadsController < ApplicationController
   	@uploads = Upload.all
   end
 
-  def import	
-    file = params[:upload]
-    puts file.path
-    import_csv(file)
-
+  def import
+    csv_separate(params[:file].tempfile, params[:keywords])
     redirect_to root_url
   end
 
@@ -36,6 +32,6 @@ class UploadsController < ApplicationController
   end
 
   def	import_params
-  	params.require(:upload).permit(:first_name, :last_name, :email, :company, :religion, :title, :city, :street, :state, :zip, :phone, :web_site, :revenue, :employees)
+  	params.require(:file).permit(:keywords, :first_name, :last_name, :email, :company, :religion, :title, :city, :street, :state, :zip, :phone, :web_site, :revenue, :employees)
   end
 end

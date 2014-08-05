@@ -1,36 +1,12 @@
 <%= flash[:notice] %>
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @uploads.each do |upload| %>
-      <tr>
-        <td><%= upload.first_name %></td>
-        <td><%= upload.last_name %></td>
-        <td><%= upload.email %></td>
-        <td><%= upload.company %></td>
-        <td><%= upload.religion %></td>
-        <td><%= upload.title %></td>
-        <td><%= upload.street %></td>
-        <td><%= upload.city %></td>
-        <td><%= upload.state %></td>
-        <td><%= upload.zip %></td>
-        <td><%= upload.phone %></td>
-        <td><%= upload.web_site %></td>
-        <td><%= upload.revenue %></td>
-        <td><%= upload.employees %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<tbody>
+	<% @uploads.each do |upload| %>
+		<tr>
+			<td><%= upload.name %></td>
+		</tr>
+	<% end %>
+</tbody>
+	
 <div>
-<h3>Import a CSV File</h3>
-  <%= form_tag({:controller => "uploads", :action => "import"}, multipart: true) do %>
-    <%= file_field_tag :upload %>
-    <%= submit_tag "Import CSV" %>
-  <% end %>
+	<%= link_to 'New Upload', new_upload_path %>
 </div>

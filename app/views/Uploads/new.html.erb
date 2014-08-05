@@ -1,0 +1,8 @@
+<div>
+  <h3>Import a CSV File</h3>
+  <%= form_tag({action: "import"}, multipart: true) do %>
+  	<%= text_field_tag("keywords") %>
+    <%= file_field_tag("file") %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>
