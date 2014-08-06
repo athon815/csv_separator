@@ -9,7 +9,7 @@ module CSVUpload
 		CSV.open("new_list.csv", "ab") do |new_list|
 	    CSV.open("old_list.csv", "ab") do |old_list|  
 		  	CSV.foreach(file, :encoding => 'windows-1251:utf-8', :headers => true) do |row|
-		      if row["company"].include?(keywords)
+		      if keywords.downcase.split(",").any? { |keyword| row["company"].downcase.include? keyword }
 		        new_list << row
 		        puts "First Row"
 		        new_list_counter += 1
@@ -23,4 +23,3 @@ module CSVUpload
 		end
 	end
 end
-
