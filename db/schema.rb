@@ -11,26 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730151611) do
+ActiveRecord::Schema.define(version: 20140807140113) do
 
   create_table "uploads", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "company"
-    t.boolean  "Religious"
-    t.string   "title"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "web_site"
-    t.string   "revenue"
-    t.string   "employees"
   end
 
 end

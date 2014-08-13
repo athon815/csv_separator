@@ -21,7 +21,7 @@ class UploadsController < ApplicationController
   end
 
   def import
-    csv_separate(params[:file].tempfile, params[:keywords])
+    csv_separate(params[:file].tempfile, params[:parent_keyword], params[:keywords])
     redirect_to root_url
   end
 
@@ -32,6 +32,6 @@ class UploadsController < ApplicationController
   end
 
   def	import_params
-  	params.require(:file).permit(:keywords, :first_name, :last_name, :email, :company, :religion, :title, :city, :street, :state, :zip, :phone, :web_site, :revenue, :employees)
+  	params.require(:file).permit(:first_name, :last_name, :email, :company, :religion, :title, :city, :street, :state, :zip, :phone, :web_site, :revenue, :employees)
   end
 end

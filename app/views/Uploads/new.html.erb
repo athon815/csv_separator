@@ -1,6 +1,9 @@
 <div>
-  <h3>Import a CSV File</h3>
+  <h1>Import a CSV File</h1>
   <%= form_tag({action: "import"}, multipart: true) do %>
+  	<h3>Column</h3>
+  	<%= select_tag ("parent_keyword"), options_for_select(["first name", "last name", "email", "company", "religious", "title", "street", "city", "state", "zip code", "phone", "web address", "revenue", "employees" ]) %>
+  	<h3>Keywords</h3>
   	<%= text_field_tag("keywords") %>
     <%= file_field_tag("file") %>
     <%= submit_tag "Import CSV" %>
